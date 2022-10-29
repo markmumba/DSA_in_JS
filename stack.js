@@ -43,6 +43,10 @@ class Stack {
             let size = Object.keys(this.storage).length;
             console.log(size);
         };
+        this.peek = function () {
+            let last = this.storage[this.count-1];
+            console.log(last);
+        }
     }
 }
 
@@ -50,5 +54,6 @@ let newStack = new Stack();
 newStack.push(1,2,3,4,5,6,7,8,9,10,11);
 newStack.pop();
 newStack.size();
+newStack.peek();
 
 

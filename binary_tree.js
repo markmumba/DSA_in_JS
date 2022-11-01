@@ -27,7 +27,7 @@ class Node {
 //     console.log(newarr);
 // }
 
-// traversing a binary tree isng recursion 
+// traversing a binary tree  depth first using  recursion 
 
 // function depthFirstValues(root){
 //     if (root === null){ return [];}
@@ -36,6 +36,9 @@ class Node {
 
 //     return [root, ...leftNodes,...rightNodes]
 // }
+
+
+// traversing a binary tree  breadth first style 
 
 // function breadthFirstValues(root) {
 //     const finalArr = [];
@@ -52,16 +55,56 @@ class Node {
 //     return finalArr;
 // }
 
+/**
+  * function to find if a value exists in the binary tree using recursion 
+ */
+  
+
+// function treeIncludesValue(root, value) {
+//     if (root === null) return false;
+//     if (root.value === value) return true;
+//     return treeIncludesValue(root.left, value) || treeIncludesValue(root.right, value);
+
+// }
 
 
+// const a = new Node('a');
+// const b = new Node('b');
+// const c = new Node('c');
+// const d = new Node('d');
+// const e = new Node('e');
+// const f = new Node('f');
 
-const a = new Node('a');
-const b = new Node('b');
-const c = new Node('c');
-const d = new Node('d');
-const e = new Node('e');
-const f = new Node('f');
 
+// a.left = b;
+// a.right = c;
+// b.left = d;
+// b.right = e;
+// c.right = f;
+
+// console.log(treeIncludesValue(a,'e'));
+
+// adding all the elements of a binary tree 
+// function treeSum(root) {
+//     if (root === null) { return 0; }
+//     const sum = root.value + treeSum(root.left) + treeSum(root.right);
+//     return sum;
+
+// }
+
+function findMinimumValue(root) {
+    if (root === null) return Infinity ;
+    const leftNodes = findMinimumValue(root.left);
+    const rightNodes = findMinimumValue(root.right);
+    return Math.min(root.value, leftNodes, rightNodes);
+}
+
+const a = new Node(10);
+const b = new Node(20);
+const c = new Node(30);
+const d = new Node(40);
+const e = new Node(5);
+const f = new Node(60);
 
 a.left = b;
 a.right = c;
@@ -69,4 +112,4 @@ b.left = d;
 b.right = e;
 c.right = f;
 
-console.log(breadthFirstValues(a));
+console.log(findMinimumValue(a))
